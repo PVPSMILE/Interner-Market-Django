@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block fortnite %}
+    <h1>Shop html</h1>
+    {% for item in products %}
+        <div class="">
+            <p><h2>{{ item.title }}</h2></p>
+            
+            <p>{{ item.short_description }}</p>
+            
+        </div>
+    {% endfor %}
+
+{% endblock %}
