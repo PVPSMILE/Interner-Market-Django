@@ -7,6 +7,15 @@
     {% block style %} {% endblock %}
 </head>
 <body>
-    {% block fortnite %} {% endblock %}
+    <h1>Привет</h1>
+    <ul>
+        <li>
+            <a href="{% url 'shop_page_link' %}">Shop</a>
+        </li>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+    </ul>
+    {% block content %}{% endblock %}
 </body>
 </html>
