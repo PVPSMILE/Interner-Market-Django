@@ -1,21 +1,49 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="shortcut icon" href="{% static 'images/favicon.png' %}" type="">
+
+  
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <!--owl slider stylesheet -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <!-- nice select  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/css/nice-select.min.css" integrity="sha512-CruCP+TD3yXzlvvijET8wV5WxxEh5H8P4cmz0RFbKK6FlZ2sYl3AEsKlLPHbniXKSrDdFewhbmBK5skbdsASbQ==" crossorigin="anonymous" />
+    <!-- font awesome style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font-awesome.min.css' %}" />
+
+  
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+    <!-- responsive style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}" />
     <title>{% block title %}Base Title{% endblock %}</title>
     {% block style %} {% endblock %}
 </head>
 <body>
-    <h1>Привет</h1>
-    <ul>
-        <li>
-            <a href="{% url 'shop_page_link' %}">Shop</a>
-        </li>
-        <li>
-            <a href="{% url 'home' %}">Home</a>
-        </li>
-    </ul>
+
+    <div class="hero_area">
+        <div class="bg-box">
+          <img src="{% static 'images/hero-bg.jpg' %}" alt="">
+        </div>
+        <!-- header section strats -->
+        {% include 'include/header.html' %}
+
+        <!-- end header section -->
+      </div>
     {% block content %}{% endblock %}
+
+    {% include 'include/footer.html' %}
 </body>
 </html>
