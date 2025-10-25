@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 
+{% block body_class %}
+    sub_page
+{% endblock %}
+
 {% block content %}
 
     <h1>Shop html</h1>
@@ -12,7 +16,6 @@
                 
                 <p>{{ item.short_description }}</p>
             </a>
-            
             
         </div>
     {% endfor %}
