@@ -7,10 +7,6 @@
 
 {% block content %}
 
-    <h1>Shop html</h1>
-
-
-
   <section class="food_section layout_padding">
     <div class="container">
       <div class="heading_container heading_center">
@@ -21,10 +17,11 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
-        <li data-filter=".pizza">Pizza</li>
-        <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        {% for category in categories %}
+          <li data-filter=".{{ category.slug }}">
+            {{ category.name_ua }}
+          </li>
+        {% endfor %}
       </ul>
 
       <div class="filters-content">
@@ -143,7 +140,29 @@
         document.cookie = name + "=" + (value || "") + expires + "; path=/"
     }
 
-    
+    function addToCart(productId) {
+      let cart = JSON.parse(getCookie('cart') || '{}')
+
+      if (cart[productId]) {
+        cart[productId]['quantity'] += 1
+      } else {
+        cart[productId]['quantity'] = 1
+      }
+
+      setCookie('cart', JSON.stringify(cart), 7)
+
+    }
+
+    document.querySelectorAll('.options a').forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        alert('Product addeed to cart')
+        event.preventDefault()
+        const productId = this.dataset.productId
+        addToCart(productId)
+
+      })
+    })
+
 </script>
 
 {% endblock %}
